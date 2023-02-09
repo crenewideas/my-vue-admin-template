@@ -15,5 +15,18 @@ export default {
         url: `${api_name}/getCourseInfoFormById/${id}`,
         method: 'get'
     })
+  },
+  getPageList(page, limit, searchObj) {
+    return request({
+      url: `${api_name}/queryCourses/${page}/${limit}`,
+      method: 'get',
+      params: searchObj
+    })
+  },
+  removeCourseById(courseId) {
+    return request({
+        url: `${api_name}/removeCourseById/${courseId}`,
+        method: 'delete'
+    })
   }
 }

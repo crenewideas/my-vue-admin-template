@@ -1,6 +1,11 @@
 <template>
     <div class="app-container">
-        
+        <el-steps :active="1" process-status="wait" align-center style="margin-bottom: 40px;">
+            <el-step title="填写课程基本信息"/>
+            <el-step title="创建课程大纲"/>
+            <el-step title="提交审核"/>
+        </el-steps>
+
         <h2 style="text-align: center;">发布新课程</h2>
         <el-form label-width="120px">
         <el-form-item label="课程标题">
@@ -66,12 +71,6 @@
                 <img :src="courseInfo.cover">
             </el-upload>
         </el-form-item>
-
-        <el-steps :active="1" process-status="wait" align-center style="margin-bottom: 40px;">
-            <el-step title="填写课程基本信息"/>
-            <el-step title="创建课程大纲"/>
-            <el-step title="提交审核"/>
-        </el-steps>
   
         <el-form label-width="120px">
             <el-form-item>
@@ -125,7 +124,7 @@
                 this.courseId = this.$route.params.id
                 // 调用根据id查询课程的方法
                 // 根据id获取课程基本信息
-                this.courseInfo = null
+                this.courseInfo = {}
                 this.fetchCourseInfoById(this.courseId)
             }
         },
